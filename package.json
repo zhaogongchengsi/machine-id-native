@@ -1,6 +1,6 @@
 {
-  "name": "machine-id-native",
-  "version": "1.0.0",
+  "name": "@holix/machine-id-native",
+  "version": "0.0.1",
   "description": "A native Node.js addon to retrieve unique machine identifiers across different platforms (Windows, macOS, Linux)",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
@@ -24,7 +24,10 @@
     "build": "node-gyp rebuild && tsdown",
     "configure": "node-gyp configure",
     "clean": "node-gyp clean && rm -rf dist",
-    "prepublishOnly": "pnpm run build"
+    "prepublishOnly": "pnpm run build",
+    "release": "pnpm run build && pnpm publish --access public",
+    "release:beta": "pnpm run build && pnpm publish --access public --tag beta",
+    "release:dry": "pnpm run build && pnpm publish --dry-run"
   },
   "keywords": [
     "machine-id",
