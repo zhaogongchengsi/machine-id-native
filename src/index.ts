@@ -126,39 +126,63 @@ export function getBoardSerial(): string {
  * Get all available fingerprint information for the current platform
  * @returns Object containing all available fingerprint data
  */
-export function getAllFingerprints(): Record<string, string> {
-	const result: Record<string, string> = {
+/**
+ * Platform-specific fingerprint information
+ */
+export interface FingerprintInfo {
+	/** Base machine ID (available on all platforms) */
+	machineId: string;
+	/** Windows: Machine GUID from registry */
+	machineGuid?: string;
+	/** Windows: BIOS UUID */
+	biosUUID?: string;
+	/** Windows: Base board serial number */
+	baseBoardSerial?: string;
+	/** macOS: IOPlatform UUID */
+	ioPlatformUUID?: string;
+	/** macOS: IOPlatform serial number */
+	ioPlatformSerialNumber?: string;
+	/** Linux: Machine ID from /etc/machine-id */
+	machineIdLinux?: string;
+	/** Linux: Product UUID from /sys/class/dmi/id/product_uuid */
+	productUUID?: string;
+	/** Linux: Board serial from /sys/class/dmi/id/board_serial */
+	boardSerial?: string;
+}
+
+export function getAllFingerprints(): FingerprintInfo {
+	const result: FingerprintInfo = {
 		machineId: getMachineId()
 	};
 
 	// Try Windows methods
 	if (typeof native.getMachineGuid === 'function') {
-		try { result['machineGuid'] = native.getMachineGuid(); } catch {}
+		try { result.machineGuid = native.getMachineGuid(); } catch { /* ignore */ }
 	}
 	if (typeof native.getBiosUUID === 'function') {
-		try { result['biosUUID'] = native.getBiosUUID(); } catch {}
+		try { result.biosUUID = native.getBiosUUID(); } catch { /* ignore */ }
 	}
 	if (typeof native.getBaseBoardSerial === 'function') {
-		try { result['baseBoardSerial'] = native.getBaseBoardSerial(); } catch {}
+		try { result.baseBoardSerial = native.getBaseBoardSerial(); } catch { /* ignore */ }
 	}
 
 	// Try macOS methods
 	if (typeof native.getIOPlatformUUID === 'function') {
-		try { result['ioPlatformUUID'] = native.getIOPlatformUUID(); } catch {}
+		try { result.ioPlatformUUID = native.getIOPlatformUUID(); } catch { /* ignore */ }
 	}
 	if (typeof native.getIOPlatformSerialNumber === 'function') {
-		try { result['ioPlatformSerialNumber'] = native.getIOPlatformSerialNumber(); } catch {}
+		try { result.ioPlatformSerialNumber = native.getIOPlatformSerialNumber(); } catch { /* ignore */ }
 	}
 
 	// Try Linux methods
 	if (typeof native.getMachineIdLinux === 'function') {
-		try { result['machineIdLinux'] = native.getMachineIdLinux(); } catch {}
+		try { result.machineIdLinux = native.getMachineIdLinux(); } catch { /* ignore */ }
 	}
 	if (typeof native.getProductUUID === 'function') {
-		try { result['productUUID'] = native.getProductUUID(); } catch {}
+		try { result.productUUID = native.getProductUUID(); } catch { /* ignore */ }
 	}
 	if (typeof native.getBoardSerial === 'function') {
-		try { result['boardSerial'] = native.getBoardSerial(); } catch {}
+		try { result.boardSerial = native.getBoardSerial(); } catch { /* ignore */ }
 	}
 
 	return result;
