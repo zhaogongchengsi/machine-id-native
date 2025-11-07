@@ -1,7 +1,6 @@
 # @holix/machine-id-native
 
 [![npm version](https://img.shields.io/npm/v/@holix/machine-id-native.svg)](https://www.npmjs.com/package/@holix/machine-id-native)
-[![CI/CD](https://github.com/zhaogongchengsi/machine-id-native/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/zhaogongchengsi/machine-id-native/actions/workflows/ci-cd.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/node/v/@holix/machine-id-native.svg)](https://nodejs.org)
 
