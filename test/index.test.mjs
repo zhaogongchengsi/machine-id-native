@@ -1,6 +1,6 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert';
-import getMachineId from '../dist/index.mjs';
+import { getMachineId } from '../dist/index.mjs';
 
 describe('getMachineId', () => {
 	it('should return a non-empty string', () => {

@@ -1,4 +1,4 @@
-import getMachineId from '../dist/index.mjs';
+import { getMachineId } from '../dist/index.mjs';
 
 console.log('=== Machine ID Benchmark ===\n');
 

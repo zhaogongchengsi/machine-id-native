@@ -1,4 +1,4 @@
-import getMachineId, { getAllFingerprints } from '../dist/index.mjs';
+import { getMachineId, getAllFingerprints } from '../dist/index.mjs';
 
 console.log('=== Machine Fingerprint Test ===\n');
 
@@ -33,19 +33,19 @@ if (platform === 'win32') {
 	console.log('Testing Windows methods:');
 	try {
 		const { getMachineGuid, getBiosUUID, getBaseBoardSerial } = await import('../dist/index.mjs');
-		
+
 		try {
 			console.log('  getMachineGuid():', getMachineGuid());
 		} catch (e) {
 			console.log('  getMachineGuid(): Not available');
 		}
-		
+
 		try {
 			console.log('  getBiosUUID():', getBiosUUID());
 		} catch (e) {
 			console.log('  getBiosUUID(): Not available');
 		}
-		
+
 		try {
 			console.log('  getBaseBoardSerial():', getBaseBoardSerial());
 		} catch (e) {
@@ -58,13 +58,13 @@ if (platform === 'win32') {
 	console.log('Testing macOS methods:');
 	try {
 		const { getIOPlatformUUID, getIOPlatformSerialNumber } = await import('../dist/index.mjs');
-		
+
 		try {
 			console.log('  getIOPlatformUUID():', getIOPlatformUUID());
 		} catch (e) {
 			console.log('  getIOPlatformUUID(): Not available');
 		}
-		
+
 		try {
 			console.log('  getIOPlatformSerialNumber():', getIOPlatformSerialNumber());
 		} catch (e) {
@@ -77,19 +77,19 @@ if (platform === 'win32') {
 	console.log('Testing Linux methods:');
 	try {
 		const { getMachineIdLinux, getProductUUID, getBoardSerial } = await import('../dist/index.mjs');
-		
+
 		try {
 			console.log('  getMachineIdLinux():', getMachineIdLinux());
 		} catch (e) {
 			console.log('  getMachineIdLinux(): Not available');
 		}
-		
+
 		try {
 			console.log('  getProductUUID():', getProductUUID());
 		} catch (e) {
 			console.log('  getProductUUID(): Not available');
 		}
-		
+
 		try {
 			console.log('  getBoardSerial():', getBoardSerial());
 		} catch (e) {

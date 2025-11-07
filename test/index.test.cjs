@@ -1,6 +1,8 @@
 const { describe, it } = require('node:test');
 const assert = require('node:assert');
-const getMachineId = require('../dist/index.cjs');
+const { getMachineId } = require('../dist/index.cjs');
+
+console.log('getMachineId:', getMachineId);
 
 describe('getMachineId (CommonJS)', () => {
 	it('should return a non-empty string', () => {

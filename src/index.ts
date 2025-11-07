@@ -20,7 +20,7 @@ const native = _require(join(__dirname, "../build/Release/machine_id_native.node
  * console.log(machineId); // e.g., "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
  * ```
  */
-export default function getMachineId(): string {
+export function getMachineId(): string {
 	return native.getMachineId();
 }
 
