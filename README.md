@@ -51,7 +51,7 @@ To build from source, you need:
 ### CommonJS
 
 ```javascript
-const getMachineId = require('@holix/machine-id-native');
+const {getMachineId} = require('@holix/machine-id-native');
 
 const machineId = getMachineId();
 console.log(machineId);
@@ -61,7 +61,7 @@ console.log(machineId);
 ### ES Modules
 
 ```javascript
-import getMachineId from '@holix/machine-id-native';
+import {getMachineId} from '@holix/machine-id-native';
 
 const machineId = getMachineId();
 console.log(machineId);
@@ -71,7 +71,7 @@ console.log(machineId);
 ### TypeScript
 
 ```typescript
-import getMachineId from '@holix/machine-id-native';
+import {getMachineId} from '@holix/machine-id-native';
 
 const machineId: string = getMachineId();
 console.log(machineId);
@@ -166,7 +166,7 @@ Add this to your Electron project's `package.json`:
 ```typescript
 // main.ts or main.js
 import { app } from 'electron';
-import getMachineId from '@holix/machine-id-native';
+import {getMachineId} from '@holix/machine-id-native';
 
 app.whenReady().then(() => {
   const machineId = getMachineId();
