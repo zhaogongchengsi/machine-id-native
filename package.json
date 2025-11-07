@@ -24,11 +24,17 @@
     "build": "node-gyp rebuild && tsdown",
     "configure": "node-gyp configure",
     "clean": "node-gyp clean && rm -rf dist",
+    "install": "node-gyp rebuild || echo 'Native build failed, but installation can continue'",
     "prepublishOnly": "pnpm run build",
     "release": "pnpm run build && pnpm publish --access public",
     "release:beta": "pnpm run build && pnpm publish --access public --tag beta",
     "release:dry": "pnpm run build && pnpm publish --dry-run --no-git-checks",
     "release:force": "pnpm run build && pnpm publish --access public --no-git-checks"
+  },
+  "binary": {
+    "module_name": "machine_id_native",
+    "module_path": "./build/Release/",
+    "host": "https://github.com/zhaogongchengsi/machine-id-native/releases/download/"
   },
   "keywords": [
     "machine-id",
@@ -40,7 +46,10 @@
     "napi",
     "cross-platform",
     "fingerprint",
-    "machine-identifier"
+    "machine-identifier",
+    "electron",
+    "electron-compatible",
+    "node-gyp"
   ],
   "author": "zhaozunhong",
   "license": "MIT",

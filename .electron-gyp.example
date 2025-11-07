@@ -1,0 +1,17 @@
+# Example .electron-gyp configuration
+# This file can be used by users to configure electron-gyp rebuilds
+
+# Electron version (update this to match your Electron version)
+# target=28.0.0
+
+# Architecture (x64, arm64, ia32)
+# arch=x64
+
+# Electron headers distribution URL
+# dist-url=https://electronjs.org/headers
+
+# For Apple Silicon Macs
+# arch=arm64
+
+# For Intel Macs
+# arch=x64

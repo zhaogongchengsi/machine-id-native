@@ -74,6 +74,66 @@ const machineId: string = getMachineId();
 console.log(machineId);
 ```
 
+## Electron Support
+
+This package works with Electron applications. After installing, you need to rebuild the native module for Electron:
+
+### Using electron-rebuild (Recommended)
+
+```bash
+# Install electron-rebuild as a dev dependency
+npm install --save-dev electron-rebuild
+
+# Rebuild native modules for Electron
+npx electron-rebuild
+```
+
+### Using @electron/rebuild
+
+```bash
+# Install @electron/rebuild
+npm install --save-dev @electron/rebuild
+
+# Rebuild
+npx electron-rebuild
+```
+
+### Manual rebuild with electron-gyp
+
+```bash
+# Install electron-gyp
+npm install -g electron-gyp
+
+# Set electron version and rebuild
+electron-gyp rebuild --target=<electron-version> --arch=<your-arch> --dist-url=https://electronjs.org/headers
+```
+
+### Add to package.json scripts
+
+Add this to your Electron project's `package.json`:
+
+```json
+{
+  "scripts": {
+    "rebuild": "electron-rebuild -f -w @holix/machine-id-native",
+    "postinstall": "electron-rebuild"
+  }
+}
+```
+
+### Usage in Electron Main Process
+
+```typescript
+// main.ts or main.js
+import { app } from 'electron';
+import getMachineId from '@holix/machine-id-native';
+
+app.whenReady().then(() => {
+  const machineId = getMachineId();
+  console.log('Machine ID:', machineId);
+});
+```
+
 ## API
 
 ### `getMachineId(): string`
@@ -159,6 +219,34 @@ xcode-select --install
 sudo apt-get install build-essential
 ```
 
+### Electron Build Issues
+
+If you encounter issues building for Electron:
+
+1. **Clear the build cache:**
+   ```bash
+   rm -rf build node_modules
+   npm install
+   npx electron-rebuild
+   ```
+
+2. **Specify Electron version explicitly:**
+   ```bash
+   npx electron-rebuild -v 28.0.0
+   ```
+
+3. **Check Node ABI compatibility:**
+   - Electron uses a different ABI than Node.js
+   - Always rebuild after updating Electron
+   - Use `electron-rebuild` or `@electron/rebuild`
+
+4. **ARM64 (Apple Silicon) issues:**
+   ```bash
+   # Force build for arm64
+   npm install --target_arch=arm64
+   npx electron-rebuild -a arm64
+   ```
+
 ### Missing Machine ID
 
 If the function throws an error, ensure your system has a valid machine ID configured:
@@ -171,12 +259,15 @@ If the function throws an error, ensure your system has a valid machine ID confi
 
 - [node-machine-id](https://github.com/automation-stack/node-machine-id) - Pure JavaScript implementation
 - [node-addon-api](https://github.com/nodejs/node-addon-api) - N-API C++ wrapper
+- [electron-rebuild](https://github.com/electron/rebuild) - Rebuild native modules for Electron
 
 ## Changelog
 
-### 1.0.0
+### 0.0.1 (Beta)
 
 - Initial release
 - Support for Windows, macOS, and Linux
 - TypeScript support
 - ESM and CommonJS exports
+- Electron compatibility
+
