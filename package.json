@@ -35,11 +35,6 @@
     "release:dry": "pnpm run build && pnpm publish --dry-run --no-git-checks",
     "release:force": "pnpm run build && pnpm publish --access public --no-git-checks"
   },
-  "binary": {
-    "module_name": "machine_id_native",
-    "module_path": "./build/Release/",
-    "host": "https://github.com/zhaogongchengsi/machine-id-native/releases/download/"
-  },
   "keywords": [
     "machine-id",
     "device-id",
