@@ -1,7 +1,7 @@
-# machine-id-native
+# @holix/machine-id-native
 
-[![npm version](https://img.shields.io/npm/v/machine-id-native.svg)](https://www.npmjs.com/package/machine-id-native)
-[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
+[![npm version](https://img.shields.io/npm/v/@holix/machine-id-native.svg)](https://www.npmjs.com/package/@holix/machine-id-native)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 A native Node.js addon to retrieve unique machine identifiers across different platforms (Windows, macOS, Linux).
 
@@ -25,11 +25,11 @@ A native Node.js addon to retrieve unique machine identifiers across different p
 ## Installation
 
 ```bash
-npm install machine-id-native
+npm install @holix/machine-id-native
 # or
-yarn add machine-id-native
+yarn add @holix/machine-id-native
 # or
-pnpm add machine-id-native
+pnpm add @holix/machine-id-native
 ```
 
 ### Build Requirements
@@ -48,7 +48,7 @@ To build from source, you need:
 ### CommonJS
 
 ```javascript
-const getMachineId = require('machine-id-native');
+const getMachineId = require('@holix/machine-id-native');
 
 const machineId = getMachineId();
 console.log(machineId);
@@ -58,7 +58,7 @@ console.log(machineId);
 ### ES Modules
 
 ```javascript
-import getMachineId from 'machine-id-native';
+import getMachineId from '@holix/machine-id-native';
 
 const machineId = getMachineId();
 console.log(machineId);
@@ -68,7 +68,7 @@ console.log(machineId);
 ### TypeScript
 
 ```typescript
-import getMachineId from 'machine-id-native';
+import getMachineId from '@holix/machine-id-native';
 
 const machineId: string = getMachineId();
 console.log(machineId);
