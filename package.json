@@ -1,7 +1,7 @@
 {
   "name": "@holix/machine-id-native",
   "version": "0.0.1",
-  "description": "A native Node.js addon to retrieve unique machine identifiers across different platforms (Windows, macOS, Linux)",
+  "description": "A native Node.js addon to retrieve unique machine identifiers and hardware fingerprints across different platforms (Windows, macOS, Linux). Provides multiple methods including Machine GUID, BIOS UUID, IOPlatform UUID, and more.",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
@@ -53,7 +53,13 @@
     "machine-identifier",
     "electron",
     "electron-compatible",
-    "node-gyp"
+    "node-gyp",
+    "hardware-fingerprint",
+    "bios-uuid",
+    "machine-guid",
+    "ioplatform",
+    "system-id",
+    "device-fingerprint"
   ],
   "author": "zhaozunhong",
   "license": "MIT",
