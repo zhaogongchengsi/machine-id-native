@@ -27,7 +27,8 @@
     "prepublishOnly": "pnpm run build",
     "release": "pnpm run build && pnpm publish --access public",
     "release:beta": "pnpm run build && pnpm publish --access public --tag beta",
-    "release:dry": "pnpm run build && pnpm publish --dry-run"
+    "release:dry": "pnpm run build && pnpm publish --dry-run --no-git-checks",
+    "release:force": "pnpm run build && pnpm publish --access public --no-git-checks"
   },
   "keywords": [
     "machine-id",
