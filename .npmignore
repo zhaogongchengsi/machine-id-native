@@ -1,0 +1,10 @@
+node_modules/
+*.log
+.DS_Store
+src/
+tsconfig.json
+tsdown.config.ts
+.vscode/
+.gitignore
+pnpm-lock.yaml
+*.md

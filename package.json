@@ -1,0 +1,62 @@
+{
+  "name": "machine-id-native",
+  "version": "1.0.0",
+  "description": "A native Node.js addon to retrieve unique machine identifiers across different platforms (Windows, macOS, Linux)",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "build/Release/*.node",
+    "src",
+    "binding.gyp"
+  ],
+  "scripts": {
+    "build:node": "node-gyp rebuild",
+    "build:ts": "tsdown",
+    "build": "node-gyp rebuild && tsdown",
+    "configure": "node-gyp configure",
+    "clean": "node-gyp clean && rm -rf dist",
+    "prepublishOnly": "pnpm run build"
+  },
+  "keywords": [
+    "machine-id",
+    "device-id",
+    "hardware-id",
+    "uuid",
+    "native",
+    "addon",
+    "napi",
+    "cross-platform",
+    "fingerprint",
+    "machine-identifier"
+  ],
+  "author": "zhaozunhong",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhaozunhong/machine-id-native.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zhaozunhong/machine-id-native/issues"
+  },
+  "homepage": "https://github.com/zhaozunhong/machine-id-native#readme",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "packageManager": "pnpm@10.13.1",
+  "devDependencies": {
+    "@types/node": "^24.10.0",
+    "node-addon-api": "^8.5.0",
+    "node-gyp": "^11.5.0",
+    "tsdown": "^0.16.0",
+    "typescript": "^5.9.3"
+  }
+}
